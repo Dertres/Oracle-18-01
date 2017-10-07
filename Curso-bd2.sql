@@ -8,3 +8,23 @@ constraint PK_Numero_almacen primary key(Numero_almacen)
 );
 
 --Las constraint son restricciones
+
+create or replace procedure Guardar_almacen(mi_id in integer, mi_ubicacion in varchar2)
+as
+begin
+--Aquí viene la lógica del procedimiento
+insert into almacen values(mi_id,mi_ubicacion);
+
+end;
+/
+
+
+--Vamos a probar que funciona nuestro procedimiento
+
+begin
+guardar_almacen(1,'Plymouth');
+end;
+/
+
+select * from almacen
+
